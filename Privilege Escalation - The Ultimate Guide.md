@@ -1,6 +1,6 @@
 # Privilege escalation
 
-This is a brief brain map on privilege escalation of some cases
+This is a brief brain map on privilege escalation on linux system
 
 ## Service exploits
 The MySQL service is running as root and the "root" user for the service does not have a password assigned. We can use a [popular exploit](https://www.exploit-db.com/exploits/1518) that takes advantage of User Defined Functions (UDFs) to run system commands as root via the MySQL service.
