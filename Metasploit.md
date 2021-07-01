@@ -46,7 +46,7 @@ command will save output to file as well as screen
 ```
 spool
 ```
-![[iYuiWvP.png]]
+![iYuiWvP.png](https://github.com/nibrasmuhamed/HackTips/blob/master/Assets/iYuiWvP.png)
 - Exploit modules are the most utilised modules which holds all exploits
 
 - Auxiliary module is most commonly used in scanning and verification machines are exploitable, this isn't same as actual exploitation of course
