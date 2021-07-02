@@ -153,3 +153,93 @@ Like HTML we can use attributes in XML too. The syntax for having attributes is 
 `
 
 In the above example `category` is the attribute name and `message` is the attribute value.
+
+
+1) The first payload we'll see is very simple. If you've read the previous task properly then you'll understand this payload very easily.  
+  
+`<!DOCTYPE replace [<!ENTITY name "feast"> ]>  
+ <userInfo>  
+  <firstName>falcon</firstName>  
+  <lastName>&name;</lastName>  
+ </userInfo>  
+`  
+
+  
+As we can see we are defining a `ENTITY` called `name` and assigning it a value `feast`. Later we are using that ENTITY in our code.  
+
+2) We can also use XXE to read some file from the system by defining an ENTITY and having it use the SYSTEM keyword  
+  
+`<?xml version="1.0"?>  
+<!DOCTYPE root [<!ENTITY read SYSTEM 'file:///etc/passwd'>]>  
+<root>&read;</root>`  
+  
+Here again, we are defining an ENTITY with the name `read` but the difference is that we are setting it value to `SYSTEM` and path of the file.  
+  
+If we use this payload then a website vulnerable to XXE(normally) would display the content of the file `/etc/passwd`.
+
+In a similar manner, we can use this kind of payload to read other files but a lot of times you can fail to read files in this manner or the reason for failure could be the file you are trying to read.
+
+**XXE Sample Payload**
+```xml
+<!DOCTYPE replace [<!ENTITY name SYSTEM "file:///etc/passwd"> ]>
+ <userInfo>
+  <firstName>falcon</firstName>
+  <lastName>&name;</lastName>
+ </userInfo>
+```
+
+
+## severity five - Broken access control
+
+Websites have pages that are protected from regular visitors, for example only the site's admin user should be able to access a page to manage other users. If a website visitor is able to access the protected page/pages that they are not authorised to view, the access controls are broken.
+
+  
+
+A regular visitor being able to access protected pages, can lead to the following:
+
+-   Being able to view sensitive information
+-   Accessing unauthorized functionality
+
+OWASP have a listed a few attack scenarios demonstrating access control weaknesses:  
+
+  
+
+Scenario #1: The application uses unverified data in a SQL call that is accessing account information:
+
+pstmt.setString(1, request.getParameter("acct"));
+
+ResultSet results = pstmt.executeQuery( );
+
+  
+
+An attacker simply modifies the ‘acct’ parameter in the browser to send whatever account number they want. If not properly verified, the attacker can access any user’s account.
+
+http://example.com/app/accountInfo?acct=notmyacct
+
+  
+
+Scenario #2: An attacker simply force browses to target URLs. Admin rights are required for access to the admin page.
+
+http://example.com/app/getappInfo
+
+http://example.com/app/admin_getappInfo
+
+  
+
+If an unauthenticated user can access either page, it’s a flaw. If a non-admin can access the admin page, this is a flaw ([reference to scenarios](https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A5-Broken_Access_Control)).
+
+  
+
+To put simply, broken access control allows attackers to bypass authorization which can allow them to view sensitive data or perform tasks as if they were a privileged user.
+
+
+IDOR, or Insecure Direct Object Reference, is the act of exploiting a misconfiguration in the way user input is handled, to access resources you wouldn't ordinarily be able to access. IDOR is a type of access control vulnerability.
+
+For example, let's say we're logging into our bank account, and after correctly authenticating ourselves, we get taken to a URL like this [https://example.com/bank?account_number=1234](https://example.com/bank?account_number=1234). On that page we can see all our important bank details, and a user would do whatever they needed to do and move along their way thinking nothing is wrong.
+
+There is however a potentially huge problem here, a hacker may be able to change the account_number parameter to something else like 1235, and if the site is incorrectly configured, then he would have access to someone else's bank information.
+
+
+
+## severity six - Security Misconfiguration
+
