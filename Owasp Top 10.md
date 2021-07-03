@@ -9,7 +9,7 @@ The OWASP Top 10 is a standard awareness document for developers and web applica
 -   [Broken Access Control](#severity-five---Broken-access-control)
 -   [Security Misconfiguration](#severity-six---Security-Misconfiguration)
 -   [Cross-site Scripting](#severity-seven---cross-site-scripting)
--   Insecure Deserialization
+-   [Insecure Deserialization](#severity-eight---Insecure-Deserialization)
 -   Components with Known Vulnerabilities
 -   Insufficent Logging & Monitoring
 
@@ -298,3 +298,45 @@ Remember, cross-site scripting is a vulnerability that can be exploited to execu
 
 XSS-Payloads.com (http://www.xss-payloads.com/) is a website that has XSS related Payloads, Tools, Documentation and more. You can download XSS payloads that take snapshots from a webcam or even get a more capable port and network scanner.
 
+
+## severity eight - Insecure Deserialization
+_Insecure Deserialization is a vulnerability which occurs when untrusted data is used to abuse the logic of an application" (Acunetix., 2017)_
+
+This definition is still quite broad to say the least. Simply, insecure deserialization is replacing data processed by an application with malicious code; allowing anything from DoS (Denial of Service) to RCE (Remote Code Execution) that the attacker can use to gain a foothold in a pentesting scenario.
+
+Specifically, this malicious code leverages the legitimate serialization and deserialization process used by web applications. We'll be explaining this process and why it is so commonplace in modern web applications.  
+
+  
+
+_OWASP rank this vulnerability as 8 out of 10 because of the following reasons_:
+
+  
+
+- Low exploitability. This vulnerability is often a case-by-case basis - there is no reliable tool/framework for it. Because of its nature, attackers need to have a good understanding of the inner-workings of the ToE.
+
+- The exploit is only as dangerous as the attacker's skill permits, more so, the value of the data that is exposed. For example, someone who can only cause a DoS will make the application unavailable. The business impact of this will vary on the infrastructure - some organisations will recover just fine, others, however, will not.
+
+At summary, ultimately, any application that stores or fetches data where there are no validations or integrity checks in place for the data queried or retained. A few examples of applications of this nature are:
+
+- E-Commerce Sites  
+- Forums  
+- API's  
+- Application Runtimes (Tomcat, Jenkins, Jboss, etc)
+
+Serialisation is the process of converting objects used in programming into simpler, compatible formatting for transmitting between systems or networks for further processing or storage.
+
+  
+
+Alternatively, deserialisation is the reverse of this; converting serialised information into their complex form - an object that the application will understand.
+
+**What does this mean?**
+
+Say you have a password of "password123" from a program that needs to be stored in a database on another system. To travel across a network this string/output needs to be converted to binary. Of course, the password needs to be stored as "password123" and not its binary notation. Once this reaches the database, it is converted or deserialised back into "password123" so it can be stored.
+
+Occasionally, you may find that the company/entity that you're pen-testing is using a program that already has a well documented vulnerability.
+
+For example, let's say that a company hasn't updated their version of WordPress for a few years, and using a tool such as wpscan, you find that it's version 4.6. Some quick research will reveal that WordPress 4.6 is vulnerable to an unauthenticated remote code execution(RCE) exploit, and even better you can find an exploit already made on [exploit-db](https://www.exploit-db.com/exploits/41962).
+
+As you can see this would be quite devastating, because it requires very little work on the part of the attacker as often times since the vulnerability is already well known, someone else has made an exploit for the vulnerability. The situation becomes even worse when you realize, that it's really quite easy for this to happen, if a company misses a single update for a program they use, they could be vulnerable to any number of attacks.
+
+Hence, why OWASP has rated this a 3(meaning high) on the prevalence scale, it is incredibly easy for a company to miss an update for an application.
