@@ -8,7 +8,7 @@ The OWASP Top 10 is a standard awareness document for developers and web applica
 -   [XML External Entity](#severity-four---XML-External-Entity)
 -   [Broken Access Control](#severity-five---Broken-access-control)
 -   [Security Misconfiguration](#severity-six---Security-Misconfiguration)
--   [Cross-site Scripting](#severit-seven---cross-site-scripting)
+-   [Cross-site Scripting](#severity-seven---cross-site-scripting)
 -   Insecure Deserialization
 -   Components with Known Vulnerabilities
 -   Insufficent Logging & Monitoring
