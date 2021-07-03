@@ -2,8 +2,8 @@
 
 The OWASP Top 10 is a standard awareness document for developers and web application security. It represents a broad consensus about the most critical security risks to web applications.
 
--   Injection[injection](#severity-1---injection)
--   Broken Authentication
+-   [injection](#severity-1---injection)
+-   [Broken Authentication](#severity-two-broken-authentication)
 -   Sensitive Data Exposure
 -   XML External Entity
 -   Broken Access Control
