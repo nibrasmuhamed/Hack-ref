@@ -41,4 +41,29 @@ The presence of "Sitemaps" holds a fair amount of weight in influencing the "opt
 
 
 ## Using Google for Advanced Searching
+### 
+ Whilst Google will have many Cat pictures indexed ready to serve to Joe, this is a rather trivial use of the search engine in comparison to what it can be used for.  
+For example, we can add operators such as that from programming languages to either increase or decrease our search results - or perform actions such as arithmetic!
+
+![](https://i.imgur.com/hrfWM6i.png)  
+  
+Say if we wanted to narrow down our search query, we can use quotation marks. Google will interpret everything in between these quotation marks as exact and only return the results of the exact phrase provided...Rather useful to filter through the rubbish that we don't need as we have done so below:
+
+![](https://i.imgur.com/pJSW4ou.png)
+
+### Refining our Queries
+
+  
+
+We can use terms such as “**site**” (such as bbc.co.uk) and a query (such as "gchq news") to search the specified site for the keyword we have provided to filter out content that may be harder to find otherwise. For example, using the “site” and "query" of "bbc" and "gchq", we have modified the order of which Google returns the results.  
+  
+In the screenshot below, searching for “gchq news” returns approximately 1,060,000 results from Google. The website that we want is ranked behind GCHQ's actual website:
+
+![](https://i.imgur.com/b4duG6S.png)  
+  
+But we don't want that...We wanted “**bbc****.co.****uk**” first, so let's refine our search using the “**site**” term. Notice how in the screenshot below, Google returns with much fewer results? Additionally, the page that we didn't want has disappeared, leaving the site that we did actually want! 
+
+![](https://i.imgur.com/dG3e64O.png)  
+  
+Of course, in this case, GCHQ is quite a topic of discussion - so there'll be a load of results regardless.
 
