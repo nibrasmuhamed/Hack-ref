@@ -423,3 +423,7 @@ Remember to restore the original **/usr/bin/passwd** file and exit the root shel
 
 `mv /tmp/bak /usr/bin/passwd  
 exit`
+
+##  Privilege Escalation Scripts
+
+Several tools have been written which help find potential privilege escalations on Linux. Three of these tools have been included on the Debian VM in the following directory: **/home/user/tools/privesc-scripts**
