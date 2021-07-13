@@ -398,5 +398,7 @@ Still using Kali's root user, make the file executable and set the SUID permissi
 
 Back on the Debian VM, as the low privileged user account, execute the file to gain a root shell:
 
-`/tmp/shell.elf
+`/tmp/shell.elf`
+
+## Kernel Exploits
 
