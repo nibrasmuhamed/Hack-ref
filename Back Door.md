@@ -104,5 +104,4 @@ Resource used : [http://0x90909090.blogspot.com/2016/06/creating-backdoor-in-pam
 
 Here is a GitHub repository containing a script automating this process of creating a backdoor: [https://github.com/zephrax/linux-pam-backdoor](https://github.com/zephrax/linux-pam-backdoor)
 	
-
 	
