@@ -56,7 +56,7 @@ vim has three modes
  ciw - change inner word ()
  diw - delete inner word ()
  % - jump to bracket
- 
+ zz - center view
  ```
  undo on normal mode
  ```
@@ -88,4 +88,23 @@ vim has three modes
  d - delete
  c - change
  y - copy
+ shift v - visual line
+ cntl  v - visual block
+ 
  ```
+ vim commands - normal mode
+ ```
+ / - search  n - next N - previous
+ :%s/world/replace - replace all world to replace
+ :set number - set number
+ :set relativenumber
+ :set nonnumber
+ :colorscheme <tab>
+ :set tab - tab line
+ :set mouse = a
+ 
+ ```
+ 
+ 
+ reference : neuralnine yt
+ 					hackersploit yt
