@@ -72,6 +72,8 @@ vim has three modes
  yy - copies the line
  p - pastes the line below
  P - paste above
+ 9p - paste nine times
+ 2yy - yank two words
  ```
  
  configurations
