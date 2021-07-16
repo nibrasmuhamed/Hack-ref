@@ -11,3 +11,20 @@ sudo apt install vim
 - vi
 - vim
 - editor
+
+vim has three modes
+1. normal
+2. insert
+3. visual
+
+## vim commands
+ to get started
+ ```
+ vim filename
+ ```
+ save and quit on normal mode
+ ```
+ :wq
+ ZZ
+ ```
+ 
