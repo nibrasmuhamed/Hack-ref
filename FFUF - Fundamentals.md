@@ -335,4 +335,3 @@ It's also possible to send only matches to your proxy for replaying:
 `$ ffuf -u http://FUZZ.tryhackme.com -c -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt -replay-proxy http://127.0.0.1:8080`
 
 This may be useful if you don't need all the traffic to traverse an upstream proxy and want to minimize resource usage or to avoid polluting your proxy history.
-cc
