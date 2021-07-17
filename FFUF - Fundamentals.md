@@ -336,4 +336,3 @@ It's also possible to send only matches to your proxy for replaying:
 
 This may be useful if you don't need all the traffic to traverse an upstream proxy and want to minimize resource usage or to avoid polluting your proxy history.
 
-d
