@@ -284,3 +284,54 @@ We also have to specify a custom header `-H 'Content-Type: application/x-www-for
 
 
 
+
+## Finding vhosts and subdomains
+
+ffuf may not be as efficient as specialized tools when it comes to subdomain enumeration but it's possible to do.
+
+Command for Q1
+
+`$ ffuf -u http://FUZZ.tryhackme.com -c -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt`
+
+Some subdomains might not be resolvable by the DNS server you're using and are only resolvable from within the target's local network by their private DNS servers. So some virtual hosts (vhosts) may exist with private subdomains so the previous command doesn't find them. To try finding private subdomains we'll have to use the Host HTTP header as these requests might be accepted by the web server.  
+**Note**: [virtual hosts](https://httpd.apache.org/docs/2.4/en/vhosts/examples.html) (vhosts) is the name used by Apache httpd but for Nginx the right term is [Server Blocks](https://www.nginx.com/resources/wiki/start/topics/examples/server_blocks/).  
+
+Compare the results you obtain with direct subdomain enumeration and with vhost enumeration:
+
+Commands for Q2  
+
+`$ ffuf -u http://FUZZ.google.com -c -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt -fs 0  
+$ ffuf -u http://google.com -c -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt -H 'Host: FUZZ.google.com' -fs 0`  
+
+For example there is a subdomain aol.google.com you can't find it with direct subdomain enumeration (1st command) but that you can find with vhost enumeration (2nd command).
+
+We can use drill or dig to find the IP address of the root domain:  
+
+`$ drill google.com  
+...  
+google.com.     104     IN      A       216.58.204.110  
+...`  
+
+If you enter this domain directly in your web browser or with curl, you won't be able to resolve it:
+
+`$ curl https://aol.google.com  
+curl: (6) Could not resolve host: aol.google.com`  
+
+But now if you add it in `/etc/hosts` or force the resolution with curl you'll be able to browse it:
+
+`$ curl --resolve aol.google.com:443:216.58.198.206 https://aol.google.com  
+<!doctype html><html itemscope="" itemtype="http://schema.org/WebPage" lang="fr">  
+...`  
+
+Here the aol subdomain is not very interesting as it's an alias for www.google.com and other subdomains are redirecting aliases. However, you shouldn't discount this enumeration technique as it may lead to discovering content that wasn't meant to be accessed externally.
+## Proxifying ffuf traffic
+
+Whether it' for [network pivoting](https://blog.raw.pm/en/state-of-the-art-of-network-pivoting-in-2019/) or for using BurpSuite plugins you can send all the ffuf traffic through a web proxy (HTTP or SOCKS5).  
+
+`$ ffuf -u http://10.10.102.40/ -c -w /usr/share/seclists/Discovery/Web-Content/common.txt -x http://127.0.0.1:8080`
+
+It's also possible to send only matches to your proxy for replaying:
+
+`$ ffuf -u http://FUZZ.tryhackme.com -c -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt -replay-proxy http://127.0.0.1:8080`
+
+This may be useful if you don't need all the traffic to traverse an upstream proxy and want to minimize resource usage or to avoid polluting your proxy history.
