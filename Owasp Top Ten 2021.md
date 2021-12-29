@@ -33,9 +33,9 @@ webapp.com/admin_info
 webapp.com/acctinfo?acct=1234
 
  Totally depend on authentication and session managment
- - **authentication** is identifying persons that they are who they are saying
+ - **authentication** is identifying persons that they are who they are saying.
  - **session managment** identifying which subsequent HTTP requests are being made by that same user.
- - **access control** detemines whether the user is allowed to carry out the acrion that they are attempting to perform
+ - **access control** detemines whether the user is allowed to carry out the acrion that they are attempting to perform.
 
 ### Broken access control from userside
 - vertical access control 
@@ -49,3 +49,4 @@ web apps  have different previleged user like admin and user. admin have the pre
 horizontal access controls is accessing another users data within our account. this mechanism access to resources to the users who are specifically allowed to access those resources.
 
 #### Context-dependent access controls
+context-dependent access control depend on user's interaction. for example a retail web site won't  allow users to modify contents after their payment.
