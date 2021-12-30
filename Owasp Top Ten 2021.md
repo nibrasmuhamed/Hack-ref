@@ -1,3 +1,4 @@
+
 # Owasp Top Ten 2021
 
 The Open Web Application Security Project® (OWASP) is a nonprofit foundation that works to improve the security of software. Through community-led open-source software projects, hundreds of local chapters worldwide, tens of thousands of members, and leading educational and training conferences, the OWASP Foundation is the source for developers and technologists to secure the web.
@@ -50,3 +51,11 @@ horizontal access controls is accessing another users data within our account. t
 
 #### Context-dependent access controls
 context-dependent access control depend on user's interaction. for example a retail web site won't  allow users to modify contents after their payment.
+
+#### Examples of broken access controls
+
+Broken access control vulnerabilities exist when a user can in fact access some resource or perform some action that they are not supposed to be able to access.
+
+#### Vertical privilege escalation
+
+If a user can gain access to functionality that they are not permitted to access then this is vertical privilege escalation. For example, if a non-administrative user can in fact gain access to an admin page where they can delete user accounts, then this is vertical privilege escalation.
