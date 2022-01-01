@@ -75,3 +75,7 @@ insecure.com/login/home.jsp?role=1
 user can easily change those values. #tip True can be true
 
 ***#4*** looking at the response will give better idea's. we can literally change or add in json values. json values can be add by putting comma and key:value pair.
+```
+{ "email":"someone@somemail.com","roleid":2
+}
+```
