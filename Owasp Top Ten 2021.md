@@ -65,10 +65,12 @@ If a user can gain access to functionality that they are not permitted to access
 ***#2*** some webapps use url less predictable. eg insecureweb.com/administrator-panel-yb1234
 there may be some situation where url leak for users.
 checking source code.
+
 ***#3*** parameeter based access cotrol methods: some application determine user's privileges at login and store information in a user controlable location like cookies or query string parameeter. 
 ```python
 insecure.com/login/home.jsp?admin=true
 insecure.com/login/home.jsp?role=1
 ```
 user can easily change those values. #tip True can be true
-#3 looking at the response will give better idea's. we can literally change or add in json values. json values can be add by putting comma and key:value pair.
+
+***#4*** looking at the response will give better idea's. we can literally change or add in json values. json values can be add by putting comma and key:value pair.
