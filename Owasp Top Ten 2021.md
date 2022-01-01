@@ -62,6 +62,7 @@ If a user can gain access to functionality that they are not permitted to access
 
 
 ***#1*** lab - enumerating robots.txt and checking direct access to restricted areas for bots
+
 ***#2*** some webapps use url less predictable. eg insecureweb.com/administrator-panel-yb1234
 there may be some situation where url leak for users.
 checking source code.
