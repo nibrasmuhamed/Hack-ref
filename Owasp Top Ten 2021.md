@@ -79,4 +79,16 @@ user can easily change those values. #tip True can be true
 { "email":"someone@somemail.com","roleid":2
 }
 ```
-
+#### Broken access control resulting from platform misconfiguration
+***#5*** Some application blocks specific HTTP request methods to specific URL.
+```
+DENY, POST, /admin/deleteuser , manager
+```
+this will block post request to `/admin/deleteuser` from all users in manager group.
+this can be bypassed using other HTTP methods.
+for eg:
+```http
+POST / HTTP/1.1  
+X-Original-URL: /admin/deleteUser
+```
+**tip** : ` X-Original-URL: /admin` & `X-Rewrite-URL: admin/delete?username=carlos`  if it dosen't work with GET request Try changing request to POST
