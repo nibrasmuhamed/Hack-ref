@@ -91,4 +91,4 @@ for eg:
 POST / HTTP/1.1  
 X-Original-URL: /admin/deleteUser
 ```
-**tip** : ` X-Original-URL: /admin` & `X-Rewrite-URL: admin/delete?username=carlos`  if it dosen't work with GET request Try changing request to POST
+**tip** : ` X-Original-URL: /admin` & `X-Rewrite-URL: admin/delete?username=carlos`  if it dosen't work with GET request Try changing request to POST.
