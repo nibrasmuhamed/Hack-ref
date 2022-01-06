@@ -98,4 +98,4 @@ with upgrade http request from admin, we can change admin identifier (cookie) to
 ***#6*** horizontal privilege escalation: this usually happens when user id passes as get request in low level desinged application.
 for eg: `GET /my-account?id=wiener HTTP/1.1` changing wiener to other username will change user privileges or leads to account takeover.
 ***#7*** user id in parameter but unpredictable by attacker
-
+this scenario is same as #6 th one. instead of `GET /my-account?id=wiener HTTP/1.1` application used complex id like `GET /my-account?id=9483ebd3-1c5f-403b-bb99-6a655292ab7e HTTP/1.1`. This make much more complex but, literally we can aquire user id somewhere else within application. other user uploaded blog, with blog author we can find user id.
