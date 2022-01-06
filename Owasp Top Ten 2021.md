@@ -93,3 +93,5 @@ X-Original-URL: /admin/deleteUser
 ```
 **tip** : ` X-Original-URL: /admin` & `X-Rewrite-URL: admin/delete?username=carlos`  if it dosen't work with GET request Try changing request to POST.
 with upgrade http request from admin, we can change admin identifier (cookie) to normal users, changing the username to be upraded as admin and tranfor request to GET from POST will upgrade normal user to admin with user credential (cookie) ref:brokenaccesscontrol/curcuvilated
+***#6*** horizontal privilege escalation: this usually happens when user id passes as get request in low level desinged application.
+for eg: `GET /my-account?id=wiener HTTP/1.1` changing wiener to other username will change user privileges or leads to account takeover.
