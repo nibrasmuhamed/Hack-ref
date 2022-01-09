@@ -103,3 +103,5 @@ this scenario is same as #6 th one. instead of `GET /my-account?id=wiener HTTP/1
 ***#8*** In some application redirectes to login page if we don't have permission to access the data. certain scenarios, redirect response may contain sensitive information belonging to that user.
 looking at the response will solve this.
 
+##### Horizontal to vertical previlege escalation
+***#9*** 
